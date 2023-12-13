@@ -68,9 +68,11 @@
 			const inside = document.createElement('section');
 			let model = JSON.parse(question);
 			let first_iteration = [];
+			<!-- DIVIDE THE LONG ARRAY TO BITS BY CONSTRAINTS -->
 			for(let i = 0; i < constraint; i++){
-				first_iteration.push(model.splice(0,constraint - 1));
+				first_iteration.push(model.splice(0,Number(variable) + 1));
 			}
+			<!-- CONVERT FIRST ARRAY TO NEGATIVE VALUES -->
 			for(let i = 0; i < first_iteration.length; i++){
 				first_iteration[i] = first_iteration[i].map((value,index) => {
 					if(i == 0 && value != Number(0)){
