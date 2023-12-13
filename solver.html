@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Programming can be fun</title>
+		<link rel = 'stylesheet' href = 'solver.css' />
+		<meta name = 'viewport' content = 'width=device-width'/>
+				<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+				<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/fontawesome.min.css" integrity="sha512-d0olNN35C6VLiulAobxYHZiXJmq+vl+BGIgAxQtD5+kqudro/xNMvv2yIHAciGHpExsIbKX3iLg+0B6d0k4+ZA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+				<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/regular.min.css" integrity="sha512-TzeemgHmrSO404wTLeBd76DmPp5TjWY/f2SyZC6/3LsutDYMVYfOx2uh894kr0j9UM6x39LFHKTeLn99iz378A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	</head>
+	<body>
+		<div class = "main_bg">
+			<header>
+				<div class = "wrapper">
+					<nav>
+						<ul>
+							<li><a href = "./index.html"><i class="fa-solid fa-calculator fa-2x"></i></a></li>
+						</ul>
+					</nav>				
+				</div>
+			</header>
+			<section class = "div_title">
+				<form>
+					<div class = "wrapper">
+						<div class = "top"></div>
+					</div>
+					<button>Solve</button>
+				</form>
+			</section>
+		</div>
+	</body>
+		<script>
+		window.addEventListener('load',() => {
+			let variable = localStorage.getItem("variable");
+			let constraint = localStorage.getItem("constraint");	
+			const form = document.forms[0];
+			form.addEventListener('submit',(e) => {
+				e.preventDefault();
+				let inputs = form.querySelectorAll('input');
+				inputs = [...inputs].map((value) => {
+					return value.value;
+				})
+				localStorage.setItem("variable",variable);
+				localStorage.setItem("constraint",Number(constraint) + 1);
+				localStorage.setItem("question-model",JSON.stringify(inputs));
+				window.location.href = "./solve.html"
+			})
+			const top = document.querySelector(".top");
+			const wrapper = document.querySelectorAll('.wrapper')[1];
+			for(let i = 0; i <= variable; i++){
+				const span = document.createElement('span');
+				if(i != variable){
+					span.textContent = `X${i + 1}`;
+				}else{
+					span.textContent = "R.H.S";
+				}
+				top.appendChild(span);
+			}
+			for(let i = 0; i <= constraint; i++){
+				const child = document.createElement('h1');
+				if(i == 0){
+					child.textContent = "Objective Function"
+					wrapper.appendChild(child);
+				}else{
+					child.textContent = `Row ${i}`
+					wrapper.appendChild(child);
+				}
+				const div = document.createElement('div');
+				div.setAttribute("class","top");
+				for(let j = 0; j <= variable; j++){
+					const input = document.createElement('input');
+					input.type = "number";
+					input.setAttribute("min","0");
+					input.setAttribute("required","");
+					div.appendChild(input);
+				}
+				wrapper.appendChild(div);
+			}
+		});
+		</script>
+</html>	

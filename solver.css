@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&family=Righteous&family=Roboto:wght@300&display=swap');
+
+:root{
+	--theme: #00517C;
+	--background: #002;
+	--background-hover: #004;
+	--text-color-background: #fff;
+}
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	list-style: none;
+	text-decoration: none;
+}
+body{
+	background: #abc;
+	font-size: clamp(18px,1.25rem,22px);
+	font-family: 'Oswald', sans-serif;
+	font-family: 'Righteous', sans-serif;
+	font-family: 'Roboto', sans-serif;
+}
+header{
+	background: var(--background);
+	color: var(--text-color-background);
+	padding: 25px 0;
+}
+.wrapper{
+	width: min(100%,1000px);
+	margin: 0 auto;
+	padding: 0 20px;
+}
+form{
+	padding: 30px;
+	width: 100%;
+	box-shadow: inset 1px 1px 5px rgba(0,0,0,1),
+				inset -1px -1px 5px rgba(255,255,255,.2); 
+}
+h2,h1{
+	padding: 10px;
+	text-align: center;
+}
+.top{
+	background: var(--background);
+	padding: 10px;
+	color: #fff;
+	display: flex;
+}
+.top > *{
+	flex-grow: 1;
+	flex-basis: calc(100% / 4);
+	text-align: center;
+	overflow: auto;
+}
+button{
+	padding: 20px 60px;
+	border: none;
+	outline: none;
+	background: var(--background);
+	color: var(--text-color-background);
+	font-size: clamp(16px,2rem,20px);
+	font-weight: bold;
+	transition: all .2s;
+	display: block;
+	margin: 0 auto;
+	margin-top: 20px;
+}
+button:hover{
+	background: var(--background-hover);
+}
+button:active{
+	transform: scale(.9);
+}
+a{
+	color: var(--text-color-background);
+}
+input{
+	outline: none;
+	padding: 20px;
+	font-size: clamp(16px,2rem,20px);
+	font-weight: bold;
+}

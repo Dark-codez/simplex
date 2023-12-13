@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&family=Righteous&family=Roboto:wght@300&display=swap');
+
+:root{
+	--theme: #00517C;
+	--background: #002;
+	--background-hover: #004;
+	--text-color-background: #fff;
+}
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	list-style: none;
+	text-decoration: none;
+}
+body{
+	background: #abc;
+	font-size: clamp(18px,1.25rem,22px);
+	font-family: 'Oswald', sans-serif;
+	font-family: 'Righteous', sans-serif;
+	font-family: 'Roboto', sans-serif;
+}
+header{
+	background: var(--background);
+	color: var(--text-color-background);
+	padding: 25px 0;
+}
+.wrapper{
+	width: min(100%,1000px);
+	margin: 0 auto;
+	padding: 0 20px;
+}
+.div_title{
+	position: absolute;
+	top: 0;
+	width: 100%;
+	padding: 10px;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.div_title main{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+.left{
+	align-self: center;
+}
+.left h1{
+	font-size: clamp(18px,3.25rem,100px);
+	padding-bottom: 10px;
+}
+.left p{
+	padding-bottom: 20px;
+}
+.left .button{
+	padding: 20px 60px;
+	background: var(--background);
+	color: var(--text-color-background);
+	button: none;
+	outline: none;
+	border: none;
+	font-size: clamp(16px,2.25rem,18px);
+	display: inline-block;
+	transition: all .2s;
+	cursor: pointer;
+}
+.left .button:hover{
+	background: var(--background-hover);
+}
+.left .button:active{
+	transform: scale(.9);
+}
+.right img{
+	max-width: 100%;
+}
+a{
+	color: var(--text-color-background);
+}
+@media screen and (max-width: 600px){
+	.right{
+		display: none;
+	}
+	.div_title main{
+		grid-template-columns: 1fr;
+	}
+}
