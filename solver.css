@@ -37,6 +37,9 @@ form{
 	box-shadow: inset 1px 1px 5px rgba(0,0,0,1),
 				inset -1px -1px 5px rgba(255,255,255,.2); 
 }
+.div_title{
+	overflow-x: auto;
+}
 h2,h1{
 	padding: 10px;
 	text-align: center;
@@ -46,6 +49,8 @@ h2,h1{
 	padding: 10px;
 	color: #fff;
 	display: flex;
+	overflow-x: scroll;
+
 }
 .top > *{
 	flex-grow: 1;
