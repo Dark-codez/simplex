@@ -51,8 +51,15 @@ h2,h1{
 	display: flex;
 	overflow-x: scroll;
 }
+.load{
+	padding: 0;
+}
 .load > *{
-	flex: 0 0 100%;
+	flex-grow: 1;
+	flex-shrink: 0;
+	flex-basis: calc(100% / 5);
+	border: 1px solid #fff;
+	padding: 10px 0;
 }
 .top > *{
 	flex-grow: 1;
