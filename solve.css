@@ -52,7 +52,6 @@ table{
 table tr{
 	width: 100%;
 	padding: 10px;
-	background: orange;
 }
 h3{
 	padding: 20px 0;
@@ -77,6 +76,21 @@ button{
 	border: none;
 	outline: none;
 	cursor: pointer;
+}
+.s_v{
+	background: #ccc;
+	color: #000;
+}
+.top_values{
+	padding-bottom: 1em;
+}
+.top_values td{
+	background: #ccc;
+	color: #000;
+}
+.solution{
+	padding-top: 20px;
+	font-weight: bold;
 }
 @media print {
 	body{

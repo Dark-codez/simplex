@@ -38,8 +38,41 @@
 				const table = document.createElement('table');	
 				const h3 = document.createElement('h3');
 				h3.textContent = `Table ${tableCounter}`;
+
+				const values_table = document.createElement('table');
+				const values_tr = document.createElement('tr');
+				values_tr.setAttribute('class','top_values');
+				for(let i = 0; i < Number(variable) + 1; i++){
+					const itr = document.createElement('td');
+					if(i != 0){
+						itr.textContent = `x${i}`;
+					}else{
+						itr.textContent = "/";
+					}
+					values_tr.appendChild(itr);
+				}
+
+				for(let i = 0; i < constraint - 1; i++){
+					const itr = document.createElement('td');
+					itr.textContent = `s${i + 1}`;
+					values_tr.appendChild(itr);
+				}
+				const r_s = document.createElement('td');
+				r_s.textContent = `R.H.S`;
+				values_tr.appendChild(r_s);
+				table.appendChild(values_tr);
+
+
 				for(let i = 0; i < arr.length; i++){
 					const tr = document.createElement('tr');
+					const td1 = document.createElement('td');
+					td1.setAttribute('class','s_v');
+					if(i != 0){
+						td1.textContent = `S${i}`
+					}else{
+						td1.textContent = `P`
+					}
+					tr.appendChild(td1);
 					for(let j = 0; j < arr[0].length; j++){
 						const td = document.createElement('td');
 						let answer = arr[i][j];
@@ -48,6 +81,7 @@
 					}
 					table.appendChild(tr);
 				}
+
 				inside.appendChild(h3);
 				inside.appendChild(table);
 				wrapper.appendChild(inside);
@@ -140,6 +174,15 @@
 				console.log("After Division",current);
 				if(determine_next_iteration){
 					queue.push(current);
+				}else{
+					const p = document.createElement('p');
+					p.setAttribute('class','solution');
+					p.textContent = `Solution Found: The maximum value of P is ${current[0][current[0].length - 1]} where`
+					for(let i = 1; i < Number(variable) + 1; i++){
+					<!-- console.log('working'); -->
+						p.textContent += ` variable ${i} = ${Math.round(current[i][current[0].length - 1])}`
+					}
+					wrapper.appendChild(p);
 				}
 			}
 		});
